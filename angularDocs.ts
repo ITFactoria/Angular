@@ -144,8 +144,25 @@ let jairo = new Policia("Jairito",50,23456);
 jairo.imprimir();*/
 
 
+/*************************************************************************************************/
+* ROUTES
+/*************************************************************************************************/
+
+/*
+1. Crear archivo de rutas: src/app/app.routes.ts
+2. Poblar er archivo del paso 1.
+3. Importar el módulo en elarchivo app.modules.ts
+4. Renderizar componente en app.componennt.html: 
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+5. Modificar el navbar para navegar entre las rutas:
+<li class="nav-item" routerLinkActive ="active">
+        <a class="nav-link" [routerLink]="['home']">Home</a>
+
+6. Diseño
 
 
-
+*/
 
 
