@@ -186,6 +186,30 @@ import {APP_ROUTING} from './app.routes';
 6. Diseño
 
 
-*/
+**********************************************************************************************/
+//SERVICES
+/*********************************************************************************************/
+
+1. Crear el archivo src/app/services
+2. Creaar el archivo src/app/services/heroes.service.ts
+3. Poblar el archivo src/app/services/heroes.service.ts:
+
+import {Injectable} from '@angular/core';
+
+@Injectable()
+    export class nameService {
+
+        constructor(){}
+    }
+
+4. Incluir el archivo en app.modules.ts en la seccion de servicios:
+import {HeroesService} from './services/heroes.service'
+
+providers: [
+    HeroesService
+  ],
+
+5. Iportar el servicio en el modulo ts donde se va a utilizar
+
 
 
