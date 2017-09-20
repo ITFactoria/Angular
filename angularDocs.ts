@@ -145,20 +145,43 @@ jairo.imprimir();*/
 
 
 /*************************************************************************************************/
-* ROUTES
+/* ROUTES
 /*************************************************************************************************/
 
 /*
 1. Crear archivo de rutas: src/app/app.routes.ts
-2. Poblar er archivo del paso 1.
-3. Importar el módulo en elarchivo app.modules.ts
+2. Poblar el archivo del paso 1:
+
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './components/home/home.component'
+
+const APP_ROUTES: Routes =[
+    { path: 'home', component: HomeComponent},
+    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+];
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
+
+3. Importar el archivo anterior en elarchivo app.modules.ts:
+
+//Routes
+import {APP_ROUTING} from './app.routes';
+
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    APP_ROUTING
+  ],
+
+
 4. Renderizar componente en app.componennt.html: 
 <div class="container">
     <router-outlet></router-outlet>
 </div>
+
 5. Modificar el navbar para navegar entre las rutas:
-<li class="nav-item" routerLinkActive ="active">
-        <a class="nav-link" [routerLink]="['home']">Home</a>
+<li class="nav-item" routerLinkActive ="active"> //link activo
+        <a class="nav-link" [routerLink]="['home']">Home</a> //Navegacion
 
 6. Diseño
 
