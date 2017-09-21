@@ -211,5 +211,45 @@ providers: [
 
 5. Iportar el servicio en el modulo ts donde se va a utilizar
 
+/**************************************************************************************************/
+// ENRUTAMIENTOS HACIA OTRAS PAGINAS
+/**************************************************************************************************/
+
+1. Mediante un link
+
+1.1. Creacion de componente (pagina)
+1.2. Adicion de nueva ruta al app.routes.ts
+1.3. Adicion de link en la pagina origen:
+
+<a [routerLink] ="['/heroe',i]" class="btn btn-outline-primary btn-block">See more ....</a>
 
 
+2. Mediante boton y programacion
+
+2.1 Importar router:
+import { Router } from '@angular/router'
+
+2.2. Adicionar enrutador en el constructor:
+constructor(private _heroesService : HeroesService, private _router : Router)
+
+2.3 Ajustar funcion
+verHeroe(index : number){
+    this._router.navigate(['/heroe',index]);
+
+
+/****************************************************************************************************/
+// 
+/*****************************************************************************************************/
+1. Importar en el componente destino: import { ActivatedRoute} from '@angular/router';
+2. Escuchar el parametro de llegada:
+
+constructor( private activatedRoute : ActivatedRoute, private _heroesService : HeroesService) { 
+    this. activatedRoute.params.subscribe(params =>{
+      console.log(params['id']);
+      this.heroe = this._heroesService.getHeroe(params['id'])
+    })
+
+3. Adicionar una funcion al servcio para retornar el dato individual:
+getHeroe(index : number){
+          return this.heroes [index];
+        }
